@@ -44,6 +44,9 @@
             </intent-filter>
         </activity>
 
+        <!--index -->
+        <activity android:name=".IndexActivity"/>
+
 
 
         <!-- Since JCore2.0.0 Required SDK核心功能-->
