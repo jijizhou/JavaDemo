@@ -1,6 +1,9 @@
 package com.example.javademo.base;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.javademo.util.IntentUtils;
 import com.example.javademo.util.LogUtil;
+
+import java.util.List;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -39,7 +44,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        LogUtil.e(((Activity)this).getClass().getName() + " - onPause");
+        LogUtil.e(((Activity)this).getClass().getName() + "d");
     }
 
     @Override
@@ -62,5 +67,23 @@ public class BaseActivity extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 当前页是否在栈顶
+     */
+    public static boolean isTop(final Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+        if (!tasks.isEmpty()) {
+            ComponentName topActivity = tasks.get(0).topActivity;
+            if (topActivity.getClassName().equals(context.getClass().getName())) {
+
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
     }
 }
