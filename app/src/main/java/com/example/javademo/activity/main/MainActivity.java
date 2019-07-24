@@ -1,9 +1,11 @@
-package com.example.javademo;
+package com.example.javademo.activity.main;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.javademo.R;
+import com.example.javademo.activity.index.IndexActivity;
 import com.example.javademo.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {

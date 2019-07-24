@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.javademo.IndexActivity;
+import com.example.javademo.activity.index.IndexActivity;
 
 import cn.jpush.android.api.JPushInterface;
 
