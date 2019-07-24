@@ -29,6 +29,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -41,4 +46,9 @@ dependencies {
 
     implementation 'cn.jiguang.sdk:jpush:3.3.4'  // 此处以JPush 3.3.4 版本为例。
     implementation 'cn.jiguang.sdk:jcore:2.1.0'  // 此处以JCore 2.1.0 版本为例。
+
+//    implementation 'com.jakewharton:butterknife:9.0.0-rc3'
+    implementation 'com.jakewharton:butterknife:9.0.0-rc3'
+    // 必须要有，不然无法绑定点击事件
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc3'
 }

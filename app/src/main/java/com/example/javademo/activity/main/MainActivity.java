@@ -8,30 +8,20 @@ import com.example.javademo.R;
 import com.example.javademo.activity.index.IndexActivity;
 import com.example.javademo.base.BaseActivity;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends BaseActivity {
 
-
-    Button btn_toIndex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        initView();
-        initListener();
+        ButterKnife.bind(this);
     }
 
-    private void initListener() {
-        btn_toIndex.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(IndexActivity.class);
-            }
-        });
-    }
-
-    private void initView() {
-        btn_toIndex = (Button) findViewById(R.id.btn_toIndex);
-
+    @OnClick(R.id.btn_toIndex )
+    public void clickBtnIndex(){
+        startActivity(IndexActivity.class);
     }
 }
